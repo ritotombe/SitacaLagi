@@ -56,7 +56,8 @@
             android:name=".LogHarianActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_log_harian"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -65,7 +66,8 @@
             android:name=".TbSekitarActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tb_sekitar"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PertukaranBukuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PertukaranBukuActivity" />
@@ -74,7 +76,8 @@
             android:name=".PeminjamanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_peminjaman"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -83,7 +86,8 @@
             android:name=".AnggotaActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_anggota"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -92,7 +96,8 @@
             android:name=".PertukaranBukuActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_pertukaran_buku"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -101,7 +106,8 @@
             android:name=".KelolaPertukaranBukuActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_kelola_pertukaran_buku"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PertukaranBukuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PertukaranBukuActivity" />
@@ -110,7 +116,9 @@
             android:name=".BuatAnggotaActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_buat_anggota"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".AnggotaActivity">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AnggotaActivity" />
@@ -119,7 +127,8 @@
             android:name=".BukuActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_buku"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -128,7 +137,9 @@
             android:name=".TambahBukuActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_buku"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".BukuActivity">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BukuActivity" />
@@ -137,7 +148,9 @@
             android:name=".TambahPeminjamanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_peminjaman"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PeminjamanActivity">
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PeminjamanActivity" />
@@ -146,7 +159,8 @@
             android:name=".TambahLogHarianActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_log_harian"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LogHarianActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LogHarianActivity" />
@@ -156,7 +170,8 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_pertukaran_buku"
             android:parentActivityName=".KelolaPertukaranBukuActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.KelolaPertukaranBukuActivity" />
@@ -165,7 +180,8 @@
             android:name=".KategoriActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_kategori"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -174,7 +190,9 @@
             android:name=".UbahPeminjamanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_peminjaman"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PeminjamanActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.PeminjamanActivity" />
@@ -183,7 +201,9 @@
             android:name=".UbahBukuActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_buku"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".BukuActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.BukuActivity" />
@@ -192,7 +212,8 @@
             android:name=".UbahAnggotaActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_anggota"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".AnggotaActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.AnggotaActivity" />
@@ -201,7 +222,8 @@
             android:name=".UbahLogHarianActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_log_harian"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LogHarianActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.LogHarianActivity" />
@@ -210,7 +232,8 @@
             android:name=".TambahDonaturActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_donatur"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".DonaturActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.DonaturActivity" />
@@ -219,7 +242,8 @@
             android:name=".TambahKategoriActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_kategori"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".KategoriActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.KategoriActivity" />
@@ -228,7 +252,8 @@
             android:name=".UbahUserActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_user"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".UserActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.UserActivity" />
@@ -237,7 +262,8 @@
             android:name=".UserActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_user"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.MainActivity" />
@@ -256,7 +282,8 @@
             android:name=".UbahKategoriActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_kategori"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".KategoriActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.KategoriActivity" />
@@ -265,7 +292,8 @@
             android:name=".TambahTbSekitarActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_tb_sekitar"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TbSekitarActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TbSekitarActivity" />
@@ -274,7 +302,8 @@
             android:name=".UbahTbSekitarActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_tb_sekitar"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".TbSekitarActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".TbSekitarActivity" />
@@ -283,7 +312,8 @@
             android:name=".DonaturActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_donatur"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -292,7 +322,8 @@
             android:name=".UbahDonaturActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_donatur"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".DonaturActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.DonaturActivity" />
@@ -311,7 +342,8 @@
             android:name=".KegiatanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_kegiatan"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -320,7 +352,8 @@
             android:name=".TambahKegiatanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_tambah_kegiatan"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".KegiatanActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.KegiatanActivity" />
@@ -329,7 +362,8 @@
             android:name=".UbahKegiatanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_ubah_kegiatan"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:parentActivityName=".KegiatanActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rito.sitaca.KegiatanActivity" />
