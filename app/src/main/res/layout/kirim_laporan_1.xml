@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="300dp"
+    >
+
+<Button android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:padding="@dimen/activity_margin"
+    android:id="@+id/kirim1"
+    android:text="Daftar Pengguna dan Taman Baca ke 1001buku"
+    android:background="@drawable/main_buttons"
+    android:textColor="#555"
+    android:layout_weight="1"/>
+    <Button android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:padding="@dimen/activity_margin"
+        android:id="@+id/kirim2"
+        android:text="Daftar Pengguna 1001buku"
+        android:background="@drawable/main_buttons"
+        android:textColor="#555"
+        android:layout_weight="1"/>
+    <Button android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:padding="@dimen/activity_margin"
+        android:id="@+id/kirim3"
+        android:text="Impor Data Taman Baca*"
+        android:textColor="#555"
+        android:background="@drawable/main_buttons"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/activity_margin"
+        android:gravity="center"
+        android:text="*) Silahkan hubungi Admin 1001buku untuk info lebih lanjut"
+        android:layout_weight="1"/>
+</LinearLayout>

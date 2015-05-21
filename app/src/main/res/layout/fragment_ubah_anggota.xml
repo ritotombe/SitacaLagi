@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    tools:context="com.example.rito.sitaca.UbahAnggotaActivity$PlaceholderFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="*) Wajib diisi"
+                android:id="@+id/textView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nama Lengkap*"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaNamaLengkap"
+                android:inputType="textPersonName"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nama Panggilan"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaNamaPanggilan"
+                android:inputType="textPersonName"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tanggal Lahir*"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:id="@+id/buatAnggotaTanggalLahir"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Alamat*"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaAlamat"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Jenis Kelamin*"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_bg"
+                android:id="@+id/buatAnggotaJenisKelamin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nomor Telepon"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaNomorTelepon"
+                android:inputType="phone"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sekolah"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaSekolah"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin"  />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Kelas"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaKelas"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Jumlah Poin"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buatAnggotaJumlahPoin"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:inputType="number"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/form_bg"
+                android:layout_marginTop="@dimen/layout_marginTop1"
+                android:padding="@dimen/activity_margin"  />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Status"
+                android:textColor="#565656"
+                android:layout_marginTop="@dimen/layout_marginTop" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/form_bg"
+                android:id="@+id/buatAnggotaStatus"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simpan"
+                android:textColor="#fff"
+                android:id="@+id/button"
+                android:layout_below="@+id/scrollView"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/activity_margin"
+                android:background="@drawable/save_button"
+                android:padding="@dimen/activity_margin"
+                android:layout_gravity="right" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

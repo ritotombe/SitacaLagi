@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:weightSum="4">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kata Sandi : "
+        android:textColor="#555"
+
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:padding="@dimen/activity_margin"/>
+
+   <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/passKirim"
+       android:inputType="textPassword"
+       android:layout_margin="@dimen/activity_margin"
+       android:padding="@dimen/activity_margin"
+       android:background="@drawable/form_bg"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Kirim"
+        android:id="@+id/btnKirim"
+        android:textColor="#fff"
+        android:layout_margin="@dimen/activity_margin"
+        android:padding="@dimen/activity_margin"
+        android:background="@drawable/save_button"/>
+</LinearLayout>
