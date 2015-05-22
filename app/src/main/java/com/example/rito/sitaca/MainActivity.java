@@ -32,9 +32,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 public class MainActivity extends ActionBarActivity {
-
   //  DBHelper DB = new DBHelper(getApplicationContext());
     private DrawerLayout mDrawerLayout;
     private NonScrollListView mDrawerListTambahan;
@@ -46,11 +44,13 @@ public class MainActivity extends ActionBarActivity {
     private String[] menuTambahan={"Kategori","Donatur","Kegiatan","Taman Baca","Pengguna", "Pengumuman", "Kirim Laporan"};
 
 
+
     public MainActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -62,40 +62,7 @@ public class MainActivity extends ActionBarActivity {
         pref = this.getSharedPreferences("kirim", 0);
         Log.d("idtb",""+ pref.getInt("id_tb",-1));
         Log.d("idtbuser",""+ pref.getInt("id_user",-1));
-        // set a custom shadow that overlays the main content when the drawer opens
-       // mDrawerLayout.setDrawerShadow(R.mipmap.drawer_shadow, GravityCompat.START);
-        // set up the drawer's list view with items and click listener
-      /*  mDrawerListUtama.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item, menuUtama));
-        mDrawerListUtama.setOnItemClickListener(new ListView.OnItemClickListener() {
-             @Override
-             public void onItemClick(AdapterView<?> parent, View view, int position, long id)  {
-             Intent intent;
-                switch (position){
-                case 0:
-                    intent = new Intent(getApplicationContext(), PeminjamanActivity.class);
-                    startActivity(intent);
-                    break;
-                 case 1:
-                    intent = new Intent(getApplicationContext(), LogHarianActivity.class);
-                    startActivity(intent);
-                    break;
-                 case 2:
-                    intent = new Intent(getApplicationContext(), BukuActivity.class);
-                    startActivity(intent);
-                    break;
-                 case 3:
-                    intent = new Intent(getApplicationContext(), AnggotaActivity.class);
-                    startActivity(intent);
-                    break;
-                 case 4:
-                    intent = new Intent(getApplicationContext(), PertukaranBukuActivity.class);
-                    startActivity(intent);
-                    break;
-                }
-              }
-            }
-        );*/
+
         mDrawerListTambahan.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, menuTambahan));
         mDrawerListTambahan.setOnItemClickListener(new ListView.OnItemClickListener() {
@@ -130,8 +97,9 @@ public class MainActivity extends ActionBarActivity {
                         break;
                     case 5:
                         if(new Connection().checkConnection(getApplicationContext())) {
-                            intent = new Intent(getApplicationContext(), PengumumanActivity.class);
-                            startActivity(intent);
+                            int id_user = pref.getInt("id_user", -1);
+                            cekUser(id_user);
+                            //Log.d("id user", "" + cekPengumuman);
                         }
                         else{
                             Toast.makeText(
@@ -184,6 +152,51 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+    }
+
+    public void cekUser( int id){
+
+        final ArrayList<User> listUser = new ArrayList<User>();
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        params.add(new BasicNameValuePair("aksi", "lihat"));
+        params.add(new BasicNameValuePair("id", "" + id));
+        RequestData requestData = new RequestData(
+                "userdao.php",
+                params,
+                MainActivity.this,
+                "Otorisasi Pengguna")
+        {
+            @Override
+            protected void onPostExecute(JSONArray data) {
+
+                int cek;
+                pDialog.dismiss();
+                JSONArray jsonArray = data;
+                //og.d("cekid", ""+jsonArray);
+                //for (int i = 0; i < jsonArray.length(); i++) {
+                    //Log.d("cekid", "" + i);
+                    try {
+                        int cekPengumuman = 0;
+                        JSONObject o = jsonArray.getJSONObject(0);
+                        cekPengumuman = o.getInt("status");
+                        Log.d("cekpengu", ""+cekPengumuman);
+                        if(cekPengumuman == 1) {
+                            Intent intent = new Intent(getApplicationContext(), PengumumanActivity.class);
+                            startActivity(intent);
+                        }
+                        else{
+                            Toast.makeText(
+                                    getApplicationContext(),
+                                    "Kesalahan: Pengguna belum disetujui oleh admin. Tidak dapat melihat pengumuman",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+            }
+        };
+        requestData.execute();
     }
 
     @Override
