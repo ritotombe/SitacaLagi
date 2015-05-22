@@ -142,7 +142,7 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                     "tbdao.php",
                                     params,
                                     getActivity(),
-                                    "Mengubah User") {
+                                    "Mengubah TB") {
                                 @Override
                                 protected void onPostExecute(JSONArray data) {
                                     pDialog.dismiss();
