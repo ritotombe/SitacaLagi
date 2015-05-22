@@ -165,7 +165,7 @@ public class MainActivity extends ActionBarActivity {
                 params,
                 MainActivity.this,
                 "Otorisasi Pengguna")
-        {
+        { // test
             @Override
             protected void onPostExecute(JSONArray data) {
                 pDialog.dismiss();
