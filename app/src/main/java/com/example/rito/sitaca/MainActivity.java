@@ -177,7 +177,6 @@ public class MainActivity extends ActionBarActivity {
                         int cekPengumuman = 0;
                         JSONObject o = jsonArray.getJSONObject(0);
                         cekPengumuman = o.getInt("status");
-                        Log.d("cekpengu", ""+cekPengumuman);
                         if(cekPengumuman == 1) {
                             Intent intent = new Intent(getApplicationContext(), PengumumanActivity.class);
                             startActivity(intent);

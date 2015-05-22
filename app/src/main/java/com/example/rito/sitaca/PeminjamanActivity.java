@@ -334,8 +334,8 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
                     buku.setStatus("Tersedia");
                     Anggota anggota = mAnggotaDao.getAnggota(deleteList.get(i).getId_anggota());
                     int poin = anggota.getJumlahPoin() + buku.getPoin();
-                    Log.d("poin", ""+poin);
                     anggota.setJumlahPoin(poin);
+                    mAnggotaDao.updateAnggota(anggota);
                     mBukuDao.updateBuku(buku);
                     Peminjaman peminjaman = deleteList.get(i);
                     peminjaman.setStatus(0);
@@ -345,21 +345,6 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
             deleteList = new ArrayList<>();
             populateList();
         }
-
-        //Animasi saat tekan tombol delete
-       /* public void slideDeleteFragment()
-        {
-            if(!isDelete) {
-                isDelete = true;
-                onDelete = false;
-                populateList();
-            }
-            else{
-                isDelete = false;
-                onDelete = true;
-                populateList();
-            }
-        }*/
 
         public void populateList() {
             mListviewPeminjaman = (ListView) rootView.findViewById(R.id.listViewPeminjaman);

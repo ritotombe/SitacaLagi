@@ -262,7 +262,6 @@ public class TambahBukuActivity extends ActionBarActivity {
             if(!String.valueOf(poin.getText()).equalsIgnoreCase(""))
             {
                 poinBaru=Integer.parseInt(String.valueOf(poin.getText()));
-                Log.d("cekPoin",""+poinBaru);
             }
 
             final Button addBtn = (Button) rootView.findViewById(R.id.button);

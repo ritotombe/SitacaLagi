@@ -304,9 +304,7 @@ public class UbahBukuActivity extends ActionBarActivity {
                     spinnerDonatur.showDropDown();
                 }
             });
-            if (!String.valueOf(poin.getText()).equalsIgnoreCase("")) {
-                poinBaru = Integer.parseInt(String.valueOf(poin.getText()));
-            }
+
 
             final Button addBtn = (Button) rootView.findViewById(R.id.button);
             addBtn.setOnClickListener(new View.OnClickListener() {
@@ -341,6 +339,9 @@ public class UbahBukuActivity extends ActionBarActivity {
                                 errorToastKategori();
                             }
                         }
+                    }
+                    if (!String.valueOf(poin.getText()).equalsIgnoreCase("")) {
+                        poinBaru = Integer.parseInt(String.valueOf(poin.getText()));
                     }
                     if (!(String.valueOf(spinnerDonatur.getText()).equalsIgnoreCase(""))) {
                         try {
