@@ -334,6 +334,7 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
                     buku.setStatus("Tersedia");
                     Anggota anggota = mAnggotaDao.getAnggota(deleteList.get(i).getId_anggota());
                     int poin = anggota.getJumlahPoin() + buku.getPoin();
+                    Log.d("poin", ""+poin);
                     anggota.setJumlahPoin(poin);
                     mBukuDao.updateBuku(buku);
                     Peminjaman peminjaman = deleteList.get(i);

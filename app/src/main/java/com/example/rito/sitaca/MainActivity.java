@@ -99,7 +99,6 @@ public class MainActivity extends ActionBarActivity {
                         if(new Connection().checkConnection(getApplicationContext())) {
                             int id_user = pref.getInt("id_user", -1);
                             cekUser(id_user);
-                            //Log.d("id user", "" + cekPengumuman);
                         }
                         else{
                             Toast.makeText(
@@ -168,8 +167,6 @@ public class MainActivity extends ActionBarActivity {
         {
             @Override
             protected void onPostExecute(JSONArray data) {
-
-                int cek;
                 pDialog.dismiss();
                 JSONArray jsonArray = data;
                 //og.d("cekid", ""+jsonArray);
