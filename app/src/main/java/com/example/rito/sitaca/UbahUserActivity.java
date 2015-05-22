@@ -39,7 +39,7 @@ public class UbahUserActivity extends ActionBarActivity {
         }
     }
 
-//
+    //
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -173,7 +173,7 @@ public class UbahUserActivity extends ActionBarActivity {
                                 List<NameValuePair> params = new ArrayList<NameValuePair>();
                                 params.add(new BasicNameValuePair("aksi", "update"));
                                 //Log.d("idcek",""+id);
-                                params.add(new BasicNameValuePair("id", ""+ pref.getInt("id_user", -1)));
+                                params.add(new BasicNameValuePair("id", ""+pref.getInt("id_user", -1)));
                                 params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
                                 params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
                                 params.add(new BasicNameValuePair("jabatan",  String.valueOf(jabatan.getText())));
@@ -191,14 +191,33 @@ public class UbahUserActivity extends ActionBarActivity {
 
                                         try {
                                             Toast.makeText(
-                                                    rootView.getContext(),
+                                                    getActivity(),
                                                     data.get(0).toString(),
                                                     Toast.LENGTH_SHORT
                                             ).show();
+
+                                            if(!data.get(0).toString().contains("Kesalahan"))
+                                            {
+                                                user.setNama(String.valueOf(nama.getText()));
+                                                user.setAlamat(String.valueOf(alamat.getText()));
+                                                user.setJabatan(String.valueOf(jabatan.getText()));
+                                                user.setNoTelp(String.valueOf(noTelp.getText()));
+                                                user.setEmail(String.valueOf(email.getText()));
+                                                user.setPassword(String.valueOf(password.getText()));
+
+                                                userDAO.updateUser(user);
+                                                Toast.makeText(
+                                                        rootView.getContext(),
+                                                        "Informasi pengguna telah diubah.",
+                                                        Toast.LENGTH_SHORT
+                                                ).show();
+                                                userDAO.close();
+                                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                                startActivity(intent);
+                                            }
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
-
 
                                         Intent intent = new Intent(rootView.getContext(), MainActivity.class);
                                         startActivity(intent);
@@ -207,6 +226,7 @@ public class UbahUserActivity extends ActionBarActivity {
                                 };
                                 requestData.execute();
                             }
+                            else {
 
                                 user.setNama(String.valueOf(nama.getText()));
                                 user.setAlamat(String.valueOf(alamat.getText()));
@@ -215,15 +235,16 @@ public class UbahUserActivity extends ActionBarActivity {
                                 user.setEmail(String.valueOf(email.getText()));
                                 user.setPassword(String.valueOf(password.getText()));
 
-                            userDAO.updateUser(user);
-                            Toast.makeText(
-                                    rootView.getContext(),
-                                    "Informasi pengguna telah diubah.",
-                                    Toast.LENGTH_SHORT
-                            ).show();
-                            userDAO.close();
-                            Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                            startActivity(intent);
+                                userDAO.updateUser(user);
+                                Toast.makeText(
+                                        rootView.getContext(),
+                                        "Informasi pengguna telah diubah.",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                                userDAO.close();
+                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
                         }
                     }
                     if(!(String.valueOf(password.getText()).equalsIgnoreCase("")) && !(String.valueOf(newPassword.getText()).equalsIgnoreCase("")))
@@ -261,10 +282,30 @@ public class UbahUserActivity extends ActionBarActivity {
 
                                                 try {
                                                     Toast.makeText(
-                                                            rootView.getContext(),
+                                                            getActivity(),
                                                             data.get(0).toString(),
                                                             Toast.LENGTH_SHORT
                                                     ).show();
+
+                                                    if(!data.get(0).toString().contains("Kesalahan"))
+                                                    {
+                                                        user.setNama(String.valueOf(nama.getText()));
+                                                        user.setAlamat(String.valueOf(alamat.getText()));
+                                                        user.setJabatan(String.valueOf(jabatan.getText()));
+                                                        user.setNoTelp(String.valueOf(noTelp.getText()));
+                                                        user.setEmail(String.valueOf(email.getText()));
+                                                        user.setPassword(String.valueOf(password.getText()));
+
+                                                        userDAO.updateUser(user);
+                                                        Toast.makeText(
+                                                                rootView.getContext(),
+                                                                "Informasi pengguna telah diubah.",
+                                                                Toast.LENGTH_SHORT
+                                                        ).show();
+                                                        userDAO.close();
+                                                        Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                                        startActivity(intent);
+                                                    }
                                                 } catch (JSONException e) {
                                                     e.printStackTrace();
                                                 }
@@ -277,26 +318,27 @@ public class UbahUserActivity extends ActionBarActivity {
                                         };
                                         requestData.execute();
                                     }
+                                    else {
 
 
+                                        user.setNama(String.valueOf(nama.getText()));
+                                        user.setAlamat(String.valueOf(alamat.getText()));
+                                        user.setJabatan(String.valueOf(jabatan.getText()));
+                                        user.setNoTelp(String.valueOf(noTelp.getText()));
+                                        user.setEmail(String.valueOf(email.getText()));
+                                        user.setPassword(String.valueOf(newPassword.getText()));
 
-                                    user.setNama(String.valueOf(nama.getText()));
-                                    user.setAlamat(String.valueOf(alamat.getText()));
-                                    user.setJabatan(String.valueOf(jabatan.getText()));
-                                    user.setNoTelp(String.valueOf(noTelp.getText()));
-                                    user.setEmail(String.valueOf(email.getText()));
-                                    user.setPassword(String.valueOf(newPassword.getText()));
-//
-                                    userDAO.updateUser(user);
-                                    Toast.makeText(
-                                            rootView.getContext(),
-                                            "Informasi pengguna telah diubah.",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                    userDAO.close();
-                                    Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
+                                        userDAO.updateUser(user);
+                                        Toast.makeText(
+                                                rootView.getContext(),
+                                                "Informasi pengguna telah diubah.",
+                                                Toast.LENGTH_SHORT
+                                        ).show();
+                                        userDAO.close();
+                                        Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
                                 }
                             }
                         }

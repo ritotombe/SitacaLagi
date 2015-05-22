@@ -62,7 +62,6 @@ public class RequestData extends AsyncTask<String, String, JSONArray> {
 
     @Override
     protected JSONArray doInBackground(String... arg0) {
-
         int success;
         try {
 

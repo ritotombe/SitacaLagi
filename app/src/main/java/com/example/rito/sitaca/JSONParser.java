@@ -110,7 +110,7 @@ package com.example.rito.sitaca;
                     // request method is POST
                     // defaultHttpClient
                     HttpClient httpClient = new DefaultHttpClient();
-                    httpClient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "Custom user agent");
+                    httpClient.getParams().setParameter(CoreProtocolPNames.USER_AGENT, "SITACA");
                     HttpPost httpPost = new HttpPost(BASE_URL+url);
                     httpPost.setEntity(new UrlEncodedFormEntity(params));
 
