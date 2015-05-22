@@ -61,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
        // mDrawerListUtama = (NonScrollListView) findViewById(R.id.drawer_menu_utama);
         pref = this.getSharedPreferences("kirim", 0);
         Log.d("idtb",""+ pref.getInt("id_tb",-1));
+        Log.d("idtbuser",""+ pref.getInt("id_user",-1));
         // set a custom shadow that overlays the main content when the drawer opens
        // mDrawerLayout.setDrawerShadow(R.mipmap.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
@@ -317,6 +318,7 @@ public class MainActivity extends ActionBarActivity {
                 pDialog.dismiss();
                 Log.d("data",""+data);
                 try {
+                    pref.edit().putInt("id_user", Integer.parseInt(data.get(1).toString())).apply();
                     Toast.makeText(getApplicationContext(), data.get(0).toString(),Toast.LENGTH_SHORT).show();
                     if(mode == 0)
                     {
@@ -338,6 +340,7 @@ public class MainActivity extends ActionBarActivity {
                                 pDialog.dismiss();
                                 Log.d("iniData", ""+data1);
                                 try {
+
                                     Toast.makeText(getApplicationContext(), data1.get(0).toString(),Toast.LENGTH_SHORT).show();
                                 } catch (JSONException e) {
                                     e.printStackTrace();

@@ -17,6 +17,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class UbahUserActivity extends ActionBarActivity {
 
@@ -160,6 +168,46 @@ public class UbahUserActivity extends ActionBarActivity {
                             errorToast("Peringatan: Tidak ada koneksi internet.");
                         }
                         else{
+
+                            if(new Connection().checkConnection(getActivity()) &&  pref.getInt("kirim_user", -1) == 1) {
+                                List<NameValuePair> params = new ArrayList<NameValuePair>();
+                                params.add(new BasicNameValuePair("aksi", "update"));
+                                //Log.d("idcek",""+id);
+                                params.add(new BasicNameValuePair("id", ""+ pref.getInt("id_user", -1)));
+                                params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
+                                params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
+                                params.add(new BasicNameValuePair("jabatan",  String.valueOf(jabatan.getText())));
+                                params.add(new BasicNameValuePair("notelp",  String.valueOf(noTelp.getText())));
+                                params.add(new BasicNameValuePair("email",String.valueOf(email.getText())));
+                                params.add(new BasicNameValuePair("password",  password.getText().toString()));
+                                RequestData requestData = new RequestData(
+                                        "userdao.php",
+                                        params,
+                                        getActivity(),
+                                        "Mengubah User") {
+                                    @Override
+                                    protected void onPostExecute(JSONArray data) {
+                                        pDialog.dismiss();
+
+                                        try {
+                                            Toast.makeText(
+                                                    rootView.getContext(),
+                                                    data.get(0).toString(),
+                                                    Toast.LENGTH_SHORT
+                                            ).show();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+
+                                        Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        getActivity().finish();
+                                    }
+                                };
+                                requestData.execute();
+                            }
+
                                 user.setNama(String.valueOf(nama.getText()));
                                 user.setAlamat(String.valueOf(alamat.getText()));
                                 user.setJabatan(String.valueOf(jabatan.getText()));
@@ -190,6 +238,48 @@ public class UbahUserActivity extends ActionBarActivity {
                                 if (!(String.valueOf(newPassword.getText()).equals(String.valueOf(rePassword.getText())))) {
                                     errorToast("Kesalahan : Kata sandi dan konfirmasi kata sandi tidak sama.");
                                 } else {
+
+                                    if(new Connection().checkConnection(getActivity()) &&  pref.getInt("kirim_user", -1) == 1) {
+                                        List<NameValuePair> params = new ArrayList<NameValuePair>();
+                                        params.add(new BasicNameValuePair("aksi", "update"));
+                                        //Log.d("idcek",""+id);
+                                        params.add(new BasicNameValuePair("id", ""+ pref.getInt("id_user", -1)));
+                                        params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
+                                        params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
+                                        params.add(new BasicNameValuePair("jabatan",  String.valueOf(jabatan.getText())));
+                                        params.add(new BasicNameValuePair("notelp",  String.valueOf(noTelp.getText())));
+                                        params.add(new BasicNameValuePair("email",String.valueOf(email.getText())));
+                                        params.add(new BasicNameValuePair("password",  newPassword.getText().toString()));
+                                        RequestData requestData = new RequestData(
+                                                "userdao.php",
+                                                params,
+                                                getActivity(),
+                                                "Mengubah User") {
+                                            @Override
+                                            protected void onPostExecute(JSONArray data) {
+                                                pDialog.dismiss();
+
+                                                try {
+                                                    Toast.makeText(
+                                                            rootView.getContext(),
+                                                            data.get(0).toString(),
+                                                            Toast.LENGTH_SHORT
+                                                    ).show();
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+
+
+                                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                                startActivity(intent);
+                                                getActivity().finish();
+                                            }
+                                        };
+                                        requestData.execute();
+                                    }
+
+
+
                                     user.setNama(String.valueOf(nama.getText()));
                                     user.setAlamat(String.valueOf(alamat.getText()));
                                     user.setJabatan(String.valueOf(jabatan.getText()));
