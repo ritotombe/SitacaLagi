@@ -226,7 +226,7 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             kategoriDAO.createKategori("Kategori 24","Deskripsi 24");
             kategoriDAO.createKategori("Kategori 25","Deskripsi 25");
 
-            bukuDAO.createBuku(1,1,1,"Judul Buku 1 ","Pengarang 1","Penerbit 1","2002","Edisi 1","ISBN 1","ISBN13 ",30,"Tersedia");
+
             bukuDAO.createBuku(2,2,1,"Judul Buku 2","Pengarang 2","Penerbit 2","2003","Edisi 2","ISBN 2","ISBN14",30,"Tersedia");
             bukuDAO.createBuku(3,3,1,"Judul Buku 3","Pengarang 3","Penerbit 3","2004","Edisi 3","ISBN 3","ISBN15",30,"Tersedia");
             bukuDAO.createBuku(4,4,1,"Judul Buku 4","Pengarang 4","Penerbit 4","2005","Edisi 4","ISBN 4","ISBN16",30,"Tersedia");
@@ -482,7 +482,7 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             logHarianDAO.createLogHarian(1,"20/11/1994",58,"10:48","16:48");
             logHarianDAO.createLogHarian(1,"21/11/1994",59,"10:49","16:49");
 
-            peminjamanDAO.createPeminjaman(1,1,"07/02/2013","08/03/2014",1);
+
             peminjamanDAO.createPeminjaman(2,2,"08/02/2013","09/03/2014",1);
             peminjamanDAO.createPeminjaman(3,3,"09/02/2013","10/03/2014",1);
             peminjamanDAO.createPeminjaman(4,4,"10/02/2013","11/03/2014",1);
