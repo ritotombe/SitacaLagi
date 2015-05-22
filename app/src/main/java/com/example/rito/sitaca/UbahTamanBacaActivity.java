@@ -128,11 +128,12 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
 
                     if(cek){
 
-                        if (new Connection().checkConnection(getActivity()) && pref.getInt("kirim_user", -1) == 1) {
+                        if (new Connection().checkConnection(getActivity()) && pref.getInt("kirim_tb", -1) == 1) {
                             List<NameValuePair> params = new ArrayList<NameValuePair>();
                             params.add(new BasicNameValuePair("aksi", "update_user"));
                             //Log.d("idcek",""+id);
-                            params.add(new BasicNameValuePair("id", "" + pref.getInt("id_tb", -1)));
+                            params.add(new BasicNameValuePair("id_tb", "" + pref.getInt("id_tb", -1)));
+                            params.add(new BasicNameValuePair("id_user", "" + pref.getInt("id_user", -1)));
                             params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
                             params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
                             params.add(new BasicNameValuePair("facebook", String.valueOf(facebook.getText())));
@@ -146,7 +147,6 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                 @Override
                                 protected void onPostExecute(JSONArray data) {
                                     pDialog.dismiss();
-
                                     try {
                                         Toast.makeText(
                                                 getActivity(),
@@ -186,12 +186,13 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                     "Taman baca telah diubah.",
                                     Toast.LENGTH_SHORT
                             ).show();
+
+                            Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                            startActivity(intent);
+                            getActivity().finish();
                         }
                     tamanBacaDAO.close();
 
-                    Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
                 }}
             });
             return rootView;
