@@ -142,7 +142,7 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                             RequestData requestData = new RequestData(
                                     "tbdao.php",
                                     params,
-                                    getActivity(),
+                                    rootView.getContext(),
                                     "Mengubah TB") {
                                 @Override
                                 protected void onPostExecute(JSONArray data) {
@@ -159,7 +159,6 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                             tamanBaca.setAlamat(String.valueOf(alamat.getText()));
                                             tamanBaca.setFacebook(String.valueOf(facebook.getText()));
                                             tamanBaca.setTwitter(String.valueOf(twitter.getText()));
-
                                             tamanBacaDAO.updateTamanBaca(tamanBaca);
                                             Toast.makeText(
                                                     rootView.getContext(),
@@ -170,6 +169,9 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
+                                    Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
                                 }
                             };
                             requestData.execute();
@@ -186,14 +188,12 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                                     "Taman baca telah diubah.",
                                     Toast.LENGTH_SHORT
                             ).show();
-
                             Intent intent = new Intent(rootView.getContext(), MainActivity.class);
                             startActivity(intent);
                             getActivity().finish();
                         }
-                    tamanBacaDAO.close();
-
-                }}
+                        tamanBacaDAO.close();
+                    }}
             });
             return rootView;
         }

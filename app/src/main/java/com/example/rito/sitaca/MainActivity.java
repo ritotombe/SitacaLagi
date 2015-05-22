@@ -392,6 +392,7 @@ public class MainActivity extends ActionBarActivity {
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("aksi", "kirim_laporan"));
         params.add(new BasicNameValuePair("id_tb", ""+pref.getInt("id_tb",-1)));
+        params.add(new BasicNameValuePair("id_user", ""+pref.getInt("id_user",-1)));
         params.add(new BasicNameValuePair("rating_query", laporan.ratingBuku()));
         params.add(new BasicNameValuePair("summary_query", laporan.summary()));
         params.add(new BasicNameValuePair("kategori_query", laporan.kategori()));
