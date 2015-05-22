@@ -338,7 +338,7 @@ public class KategoriActivity extends ActionBarActivity implements AdapterView.O
                     intent.putExtra("id", listKategori.get(position).getId_kategori());
                     mKategoriDao.close();
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
         }
@@ -359,7 +359,7 @@ public class KategoriActivity extends ActionBarActivity implements AdapterView.O
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), TambahKategoriActivity.class);
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
             populateList();

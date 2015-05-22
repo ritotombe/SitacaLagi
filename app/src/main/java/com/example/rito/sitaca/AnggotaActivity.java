@@ -127,7 +127,6 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
                         .setMessage("Apakah "+fragment.deleteList.size()+" anggota yang anda pilih ingin dihapus?")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
-
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 fragment.delete();
                             }
@@ -158,12 +157,6 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         return false;
-    }
-
-    //tambah
-    protected  void onResume(){
-        super.onResume();
-        fragment.populateList();
     }
 
     protected void onDestroy() {
@@ -339,7 +332,7 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
                 }
             }
             deleteList = new ArrayList<>();
-            populateList();
+            //populateList();
         }
 
         //Animasi saat tekan tombol delete
@@ -373,7 +366,7 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
                     mAnggotaDao.close();
                     //mTamanBacaDao.close();
                     startActivity(intent);
-                   // getActivity().finish();
+                   getActivity().finish();
                 }
             });
         }
@@ -395,7 +388,7 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), BuatAnggotaActivity.class);
                     startActivity(intent);
-                   // getActivity().finish();
+                   getActivity().finish();
                 }
             });
 

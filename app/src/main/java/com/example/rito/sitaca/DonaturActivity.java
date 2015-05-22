@@ -351,7 +351,7 @@ public class DonaturActivity extends ActionBarActivity implements AdapterView.On
                     intent.putExtra("id", listDonatur.get(position).getId_donatur());
                     mDonaturDao.close();
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
         }
@@ -373,7 +373,7 @@ public class DonaturActivity extends ActionBarActivity implements AdapterView.On
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), TambahDonaturActivity.class);
                     startActivity(intent);
-                    //getActivity().finish();
+                  getActivity().finish();
                 }
             });
             populateList();

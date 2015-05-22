@@ -115,12 +115,20 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
                         TbSekitarDAO tbSekitarDAO = new TbSekitarDAO(getActivity());
                         BukuDAO bukuDAO = new BukuDAO(getActivity());
 
-                        donaturDAO.createDonatur("Donatur Tidak Terdaftar","","Dummy Donatur", null, "0");
+                        donaturDAO.createDonatur("Donatur Tidak Terdaftar", "", "Dummy Donatur", null, "0");
                         kategoriDAO.createKategori("Tidak Ada Kategori", "Buku tersebut tidak termasuk kategori apapun");
                         anggotaDAO.createAnggota(1, "Anggota Tidak Ada", "DummyAnggota", "ddmmyyyy", "alamat", "jk", "no_telp", "sekolah", "lagi");
                         tbSekitarDAO.createTbSekitar(1, "TB Tidak Ada", "dummy", "dummy", "dummy", "dummy");
                         bukuDAO.createBuku(1, 1, 1, "Buku Tidak Ada", "dummy", "dummy", "dummy", "dummy", "dummy", "dummy", 0, "dummy");
+
+                        donaturDAO.close();
+                        kategoriDAO.close();
+                        bukuDAO.close();
+                        anggotaDAO.close();
+                        tbSekitarDAO.close();
+
                         createDummy();
+
                         Toast.makeText(
                                 rootView.getContext(),
                                 "Taman baca telah dibuat.",
@@ -198,7 +206,7 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             donaturDAO.createDonatur("Donatur47","Alamat47","Organisasi","Kontak47","12012012");
             donaturDAO.createDonatur("Donatur48","Alamat48","Taman Baca","Kontak48","12012012");
             donaturDAO.createDonatur("Donatur49","Alamat49","Individu","Kontak49","12012012");
-            donaturDAO.createDonatur("Donatur50","Alamat50","1001buku","Kontak50","12012012");
+            donaturDAO.createDonatur("Donatur50", "Alamat50", "1001buku", "Kontak50", "12012012");
 
             kategoriDAO.createKategori("Kategori 1", "Deskripsi 1");
             kategoriDAO.createKategori("Kategori 2", "Deskripsi 2");
@@ -224,9 +232,9 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             kategoriDAO.createKategori("Kategori 22","Deskripsi 22");
             kategoriDAO.createKategori("Kategori 23","Deskripsi 23");
             kategoriDAO.createKategori("Kategori 24","Deskripsi 24");
-            kategoriDAO.createKategori("Kategori 25","Deskripsi 25");
+            kategoriDAO.createKategori("Kategori 25", "Deskripsi 25");
 
-
+            bukuDAO.createBuku(1, 1, 1, "Judul Buku 1 ", "Pengarang 1", "Penerbit 1", "2002", "Edisi 1", "ISBN 1", "ISBN13 ", 30, "Tersedia");
             bukuDAO.createBuku(2,2,1,"Judul Buku 2","Pengarang 2","Penerbit 2","2003","Edisi 2","ISBN 2","ISBN14",30,"Tersedia");
             bukuDAO.createBuku(3,3,1,"Judul Buku 3","Pengarang 3","Penerbit 3","2004","Edisi 3","ISBN 3","ISBN15",30,"Tersedia");
             bukuDAO.createBuku(4,4,1,"Judul Buku 4","Pengarang 4","Penerbit 4","2005","Edisi 4","ISBN 4","ISBN16",30,"Tersedia");
@@ -251,31 +259,31 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             bukuDAO.createBuku(23,23,1,"Judul Buku 23","Pengarang 23","Penerbit 23","2014","Edisi 23","ISBN 23","ISBN35",30,"Tersedia");
             bukuDAO.createBuku(24,24,1,"Judul Buku 24","Pengarang 24","Penerbit 24","1999","Edisi 24","ISBN 24","ISBN36",30,"Tersedia");
             bukuDAO.createBuku(25,25,1,"Judul Buku 25","Pengarang 25","Penerbit 25","1999","Edisi 25","ISBN 25","ISBN37",30,"Tersedia");
-            bukuDAO.createBuku(26,1,1,"Judul Buku 26","Pengarang 26","Penerbit 26","2002","Edisi 1","ISBN 1","ISBN13 ",30,"Tersedia");
-            bukuDAO.createBuku(27,2,1,"Judul Buku 27","Pengarang 27","Penerbit 27","2003","Edisi 2","ISBN 2","ISBN14",30,"Tersedia");
-            bukuDAO.createBuku(28,3,1,"Judul Buku 28","Pengarang 28","Penerbit 28","2004","Edisi 3","ISBN 3","ISBN15",30,"Tersedia");
-            bukuDAO.createBuku(29,4,1,"Judul Buku 29","Pengarang 29","Penerbit 29","2005","Edisi 4","ISBN 4","ISBN16",30,"Tersedia");
-            bukuDAO.createBuku(30,5,1,"Judul Buku 30","Pengarang 30","Penerbit 30","2006","Edisi 5","ISBN 5","ISBN17",30,"Tersedia");
-            bukuDAO.createBuku(31,6,1,"Judul Buku 31","Pengarang 31","Penerbit 31","2007","Edisi 6","ISBN 6","ISBN18",30,"Tersedia");
-            bukuDAO.createBuku(32,7,1,"Judul Buku 32","Pengarang 32","Penerbit 32","2008","Edisi 7","ISBN 7","ISBN19",30,"Tersedia");
-            bukuDAO.createBuku(33,8,1,"Judul Buku 33","Pengarang 33","Penerbit 33","2009","Edisi 8","ISBN 8","ISBN20",30,"Tersedia");
-            bukuDAO.createBuku(34,9,1,"Judul Buku 34","Pengarang 34","Penerbit 34","2000","Edisi 9","ISBN 9","ISBN21",30,"Tersedia");
-            bukuDAO.createBuku(35,10,1,"Judul Buku 35","Pengarang 35","Penerbit 35","2001","Edisi 10","ISBN 10","ISBN22",30,"Tersedia");
-            bukuDAO.createBuku(36,11,1,"Judul Buku 36","Pengarang 36","Penerbit 36","2002","Edisi 11","ISBN 11","ISBN23",30,"Tersedia");
-            bukuDAO.createBuku(37,12,1,"Judul Buku 37","Pengarang 37","Penerbit 37","2003","Edisi 12","ISBN 12","ISBN24",30,"Tersedia");
-            bukuDAO.createBuku(38,13,1,"Judul Buku 38","Pengarang 38","Penerbit 38","2004","Edisi 13","ISBN 13","ISBN25",30,"Tersedia");
-            bukuDAO.createBuku(39,14,1,"Judul Buku 39","Pengarang 39","Penerbit 39","2005","Edisi 14","ISBN 14","ISBN26",30,"Tersedia");
-            bukuDAO.createBuku(40,15,1,"Judul Buku 40","Pengarang 40","Penerbit 40","2006","Edisi 15","ISBN 15","ISBN27",30,"Tersedia");
-            bukuDAO.createBuku(41,16,1,"Judul Buku 41","Pengarang 41","Penerbit 41","2007","Edisi 16","ISBN 16","ISBN28",30,"Tersedia");
-            bukuDAO.createBuku(42,17,1,"Judul Buku 42","Pengarang 42","Penerbit 42","2008","Edisi 17","ISBN 17","ISBN29",30,"Tersedia");
-            bukuDAO.createBuku(43,18,1,"Judul Buku 43","Pengarang 43","Penerbit 43","2009","Edisi 18","ISBN 18","ISBN30",30,"Tersedia");
-            bukuDAO.createBuku(44,19,1,"Judul Buku 44","Pengarang 44","Penerbit 44","2010","Edisi 19","ISBN 19","ISBN31",30,"Tersedia");
-            bukuDAO.createBuku(45,20,1,"Judul Buku 45","Pengarang 45","Penerbit 45","2011","Edisi 20","ISBN 20","ISBN32",30,"Tersedia");
-            bukuDAO.createBuku(46,21,1,"Judul Buku 46","Pengarang 46","Penerbit 46","2012","Edisi 21","ISBN 21","ISBN33",30,"Tersedia");
-            bukuDAO.createBuku(47,22,1,"Judul Buku 47","Pengarang 47","Penerbit 47","2013","Edisi 22","ISBN 22","ISBN34",30,"Tersedia");
-            bukuDAO.createBuku(48,23,1,"Judul Buku 48","Pengarang 48","Penerbit 48","2014","Edisi 23","ISBN 23","ISBN35",30,"Tersedia");
-            bukuDAO.createBuku(49,24,1,"Judul Buku 49","Pengarang 49","Penerbit 49","1999","Edisi 24","ISBN 24","ISBN36",30,"Tersedia");
-            bukuDAO.createBuku(50,25,1,"Judul Buku 50","Pengarang 50","Penerbit 50","1999","Edisi 25","ISBN 25","ISBN37",30,"Tersedia");
+            bukuDAO.createBuku(1,1,1,"Judul Buku 26","Pengarang 26","Penerbit 26","2002","Edisi 1","ISBN 1","ISBN13 ",30,"Tersedia");
+            bukuDAO.createBuku(2,2,1,"Judul Buku 27","Pengarang 27","Penerbit 27","2003","Edisi 2","ISBN 2","ISBN14",30,"Tersedia");
+            bukuDAO.createBuku(3,3,1,"Judul Buku 28","Pengarang 28","Penerbit 28","2004","Edisi 3","ISBN 3","ISBN15",30,"Tersedia");
+            bukuDAO.createBuku(4,4,1,"Judul Buku 29","Pengarang 29","Penerbit 29","2005","Edisi 4","ISBN 4","ISBN16",30,"Tersedia");
+            bukuDAO.createBuku(5,5,1,"Judul Buku 30","Pengarang 30","Penerbit 30","2006","Edisi 5","ISBN 5","ISBN17",30,"Tersedia");
+            bukuDAO.createBuku(6,6,1,"Judul Buku 31","Pengarang 31","Penerbit 31","2007","Edisi 6","ISBN 6","ISBN18",30,"Tersedia");
+            bukuDAO.createBuku(7,7,1,"Judul Buku 32","Pengarang 32","Penerbit 32","2008","Edisi 7","ISBN 7","ISBN19",30,"Tersedia");
+            bukuDAO.createBuku(8,8,1,"Judul Buku 33","Pengarang 33","Penerbit 33","2009","Edisi 8","ISBN 8","ISBN20",30,"Tersedia");
+            bukuDAO.createBuku(9,9,1,"Judul Buku 34","Pengarang 34","Penerbit 34","2000","Edisi 9","ISBN 9","ISBN21",30,"Tersedia");
+            bukuDAO.createBuku(10,10,1,"Judul Buku 35","Pengarang 35","Penerbit 35","2001","Edisi 10","ISBN 10","ISBN22",30,"Tersedia");
+            bukuDAO.createBuku(11,11,1,"Judul Buku 36","Pengarang 36","Penerbit 36","2002","Edisi 11","ISBN 11","ISBN23",30,"Tersedia");
+            bukuDAO.createBuku(12,12,1,"Judul Buku 37","Pengarang 37","Penerbit 37","2003","Edisi 12","ISBN 12","ISBN24",30,"Tersedia");
+            bukuDAO.createBuku(13,13,1,"Judul Buku 38","Pengarang 38","Penerbit 38","2004","Edisi 13","ISBN 13","ISBN25",30,"Tersedia");
+            bukuDAO.createBuku(14,14,1,"Judul Buku 39","Pengarang 39","Penerbit 39","2005","Edisi 14","ISBN 14","ISBN26",30,"Tersedia");
+            bukuDAO.createBuku(15,15,1,"Judul Buku 40","Pengarang 40","Penerbit 40","2006","Edisi 15","ISBN 15","ISBN27",30,"Tersedia");
+            bukuDAO.createBuku(16,16,1,"Judul Buku 41","Pengarang 41","Penerbit 41","2007","Edisi 16","ISBN 16","ISBN28",30,"Tersedia");
+            bukuDAO.createBuku(17,17,1,"Judul Buku 42","Pengarang 42","Penerbit 42","2008","Edisi 17","ISBN 17","ISBN29",30,"Tersedia");
+            bukuDAO.createBuku(18,18,1,"Judul Buku 43","Pengarang 43","Penerbit 43","2009","Edisi 18","ISBN 18","ISBN30",30,"Tersedia");
+            bukuDAO.createBuku(19,19,1,"Judul Buku 44","Pengarang 44","Penerbit 44","2010","Edisi 19","ISBN 19","ISBN31",30,"Tersedia");
+            bukuDAO.createBuku(20,20,1,"Judul Buku 45","Pengarang 45","Penerbit 45","2011","Edisi 20","ISBN 20","ISBN32",30,"Tersedia");
+            bukuDAO.createBuku(21,21,1,"Judul Buku 46","Pengarang 46","Penerbit 46","2012","Edisi 21","ISBN 21","ISBN33",30,"Tersedia");
+            bukuDAO.createBuku(22,22,1,"Judul Buku 47","Pengarang 47","Penerbit 47","2013","Edisi 22","ISBN 22","ISBN34",30,"Tersedia");
+            bukuDAO.createBuku(23,23,1,"Judul Buku 48","Pengarang 48","Penerbit 48","2014","Edisi 23","ISBN 23","ISBN35",30,"Tersedia");
+            bukuDAO.createBuku(24,24,1,"Judul Buku 49","Pengarang 49","Penerbit 49","1999","Edisi 24","ISBN 24","ISBN36",30,"Tersedia");
+            bukuDAO.createBuku(25,25,1,"Judul Buku 50","Pengarang 50","Penerbit 50","1999","Edisi 25","ISBN 25","ISBN37",30,"Tersedia");
 
 
             anggotaDAO.createAnggota(1, "Nama Lengkap1", "Nama1", "03/10/1994", "Jakarta", "Perempuan", "1234", "Sekolah1", "1");
@@ -490,7 +498,7 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             peminjamanDAO.createPeminjaman(6,6,"12/02/2013","13/03/2014",2);
             peminjamanDAO.createPeminjaman(7,7,"13/02/2013","14/03/2014",2);
             peminjamanDAO.createPeminjaman(8,8,"14/02/2013","15/03/2014",2);
-            peminjamanDAO.createPeminjaman(9,9,"15/02/2013","16/03/2014",3);
+            peminjamanDAO.createPeminjaman(9, 9, "15/02/2013","16/03/2014",3);
             peminjamanDAO.createPeminjaman(10,10,"16/02/2013","17/03/2014",3);
             peminjamanDAO.createPeminjaman(11,11,"17/02/2013","18/03/2014",3);
             peminjamanDAO.createPeminjaman(12,12,"18/02/2013","19/03/2014",3);
@@ -559,9 +567,6 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             pertukaranBukuDAO.createPertukaranBuku(48,48,"15/7/2012","18/7/2012");
             pertukaranBukuDAO.createPertukaranBuku(49,49,"15/7/2012","18/7/2012");
             pertukaranBukuDAO.createPertukaranBuku(50,50,"15/7/2012","18/7/2012");
-
-
-
 
             donaturDAO.close();
             kategoriDAO.close();

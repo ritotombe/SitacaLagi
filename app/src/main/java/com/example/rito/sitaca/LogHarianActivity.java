@@ -350,7 +350,7 @@ public class LogHarianActivity extends ActionBarActivity implements AdapterView.
                     intent.putExtra("id", listLogHarian.get(position).getId_logHarian());
                     mLogHarianDao.close();
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
         }
@@ -371,7 +371,7 @@ public class LogHarianActivity extends ActionBarActivity implements AdapterView.
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), TambahLogHarianActivity.class);
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
             populateList();

@@ -376,7 +376,7 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
                     mBukuDao.close();
                     mPeminjamanDao.close();
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
         }
@@ -402,7 +402,7 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), TambahPeminjamanActivity.class);
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
             populateList();

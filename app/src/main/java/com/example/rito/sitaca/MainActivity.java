@@ -63,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
         Log.d("idtb",""+ pref.getInt("id_tb",-1));
         Log.d("idtbuser",""+ pref.getInt("id_user",-1));
 
+
         mDrawerListTambahan.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, menuTambahan));
         mDrawerListTambahan.setOnItemClickListener(new ListView.OnItemClickListener() {

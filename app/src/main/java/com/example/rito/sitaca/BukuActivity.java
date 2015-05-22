@@ -387,7 +387,7 @@ public class BukuActivity extends ActionBarActivity implements AdapterView.OnIte
                         intent.putExtra("id", listBuku.get(position).getId_buku());
                         mBukuDao.close();
                         startActivity(intent);
-                        //getActivity().finish();
+                        getActivity().finish();
                     }
                 }
             });
@@ -409,7 +409,7 @@ public class BukuActivity extends ActionBarActivity implements AdapterView.OnIte
                 public void onClick(View view) {
                     Intent intent = new Intent(rootView.getContext(), TambahBukuActivity.class);
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
             });
             populateList();
