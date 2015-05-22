@@ -7,7 +7,15 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 
 public class DBHelper  extends SQLiteOpenHelper {
     //version number to upgrade database version
@@ -162,6 +170,8 @@ public class DBHelper  extends SQLiteOpenHelper {
 
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed, all data will be gone!!!
@@ -173,5 +183,4 @@ public class DBHelper  extends SQLiteOpenHelper {
     public DBHelper(Context context, String name, CursorFactory factory,int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
-
 }

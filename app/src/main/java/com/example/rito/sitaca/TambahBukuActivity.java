@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -261,6 +262,7 @@ public class TambahBukuActivity extends ActionBarActivity {
             if(!String.valueOf(poin.getText()).equalsIgnoreCase(""))
             {
                 poinBaru=Integer.parseInt(String.valueOf(poin.getText()));
+                Log.d("cekPoin",""+poinBaru);
             }
 
             final Button addBtn = (Button) rootView.findViewById(R.id.button);
