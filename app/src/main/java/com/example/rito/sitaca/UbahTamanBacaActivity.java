@@ -14,6 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class UbahTamanBacaActivity extends ActionBarActivity {
 
@@ -119,17 +127,66 @@ public class UbahTamanBacaActivity extends ActionBarActivity {
                     }
 
                     if(cek){
-                    tamanBaca.setNama(String.valueOf(nama.getText()));
-                    tamanBaca.setAlamat(String.valueOf(alamat.getText()));
-                    tamanBaca.setFacebook(String.valueOf(facebook.getText()));
-                    tamanBaca.setTwitter(String.valueOf(twitter.getText()));
 
-                    tamanBacaDAO.updateTamanBaca(tamanBaca);
-                    Toast.makeText(
-                            rootView.getContext(),
-                            "Taman baca telah diubah.",
-                            Toast.LENGTH_SHORT
-                    ).show();
+                        if (new Connection().checkConnection(getActivity()) && pref.getInt("kirim_user", -1) == 1) {
+                            List<NameValuePair> params = new ArrayList<NameValuePair>();
+                            params.add(new BasicNameValuePair("aksi", "update_user"));
+                            //Log.d("idcek",""+id);
+                            params.add(new BasicNameValuePair("id", "" + pref.getInt("id_tb", -1)));
+                            params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
+                            params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
+                            params.add(new BasicNameValuePair("facebook", String.valueOf(facebook.getText())));
+                            params.add(new BasicNameValuePair("twitter", String.valueOf(twitter.getText())));
+
+                            RequestData requestData = new RequestData(
+                                    "tbdao.php",
+                                    params,
+                                    getActivity(),
+                                    "Mengubah User") {
+                                @Override
+                                protected void onPostExecute(JSONArray data) {
+                                    pDialog.dismiss();
+
+                                    try {
+                                        Toast.makeText(
+                                                getActivity(),
+                                                data.get(0).toString(),
+                                                Toast.LENGTH_SHORT
+                                        ).show();
+
+                                        if (!data.get(0).toString().contains("Kesalahan")) {
+                                            tamanBaca.setNama(String.valueOf(nama.getText()));
+                                            tamanBaca.setAlamat(String.valueOf(alamat.getText()));
+                                            tamanBaca.setFacebook(String.valueOf(facebook.getText()));
+                                            tamanBaca.setTwitter(String.valueOf(twitter.getText()));
+
+                                            tamanBacaDAO.updateTamanBaca(tamanBaca);
+                                            Toast.makeText(
+                                                    rootView.getContext(),
+                                                    "Taman baca telah diubah.",
+                                                    Toast.LENGTH_SHORT
+                                            ).show();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            };
+                            requestData.execute();
+                        }
+                        else {
+                            tamanBaca.setNama(String.valueOf(nama.getText()));
+                            tamanBaca.setAlamat(String.valueOf(alamat.getText()));
+                            tamanBaca.setFacebook(String.valueOf(facebook.getText()));
+                            tamanBaca.setTwitter(String.valueOf(twitter.getText()));
+
+                            tamanBacaDAO.updateTamanBaca(tamanBaca);
+                            Toast.makeText(
+                                    rootView.getContext(),
+                                    "Taman baca telah diubah.",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
                     tamanBacaDAO.close();
 
                     Intent intent = new Intent(rootView.getContext(), MainActivity.class);

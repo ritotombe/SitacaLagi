@@ -110,9 +110,7 @@ public class UbahUserActivity extends ActionBarActivity {
 
             int id = userDAO.getAllUser().get(0).getId_user();
             pref = getActivity().getSharedPreferences("kirim", 0);
-
             final User user = userDAO.getUser(id);
-
             nama.setText(user.getNama());
             alamat.setText(user.getAlamat());
             jabatan.setText(user.getJabatan());
@@ -159,91 +157,90 @@ public class UbahUserActivity extends ActionBarActivity {
                     if(!(String.valueOf(password.getText()).equalsIgnoreCase("")) && (String.valueOf(newPassword.getText()).equalsIgnoreCase("")) && !((String.valueOf(rePassword.getText()).equalsIgnoreCase("")))){
                         errorToast("Kesalahan : Kata sandi baru belum terisi.");
                     }
-                    if(!(String.valueOf(password.getText()).equalsIgnoreCase("")) && (String.valueOf(newPassword.getText()).equalsIgnoreCase("")) && (String.valueOf(rePassword.getText()).equalsIgnoreCase(""))){
-                        if(!(String.valueOf(password.getText()).equals(user.getPassword()))){
+                    if(!(String.valueOf(password.getText()).equalsIgnoreCase("")) && (String.valueOf(newPassword.getText()).equalsIgnoreCase("")) && (String.valueOf(rePassword.getText()).equalsIgnoreCase(""))) {
+                        if (!(String.valueOf(password.getText()).equals(user.getPassword()))) {
+                            Log.d("cekPass", password.getText().toString());
                             errorToast("Kesalahan : Kata sandi yang dimasukkan salah, sehingga data tidak dapat diubah.");
-                        }
-                        if(!(new Connection().checkConnection(getActivity())) &&  pref.getInt("kirim_user", -1) == 1) {
+                        } else {
+                            if (!(new Connection().checkConnection(getActivity())) && pref.getInt("kirim_user", -1) == 1) {
 
-                            errorToast("Peringatan: Tidak ada koneksi internet.");
-                        }
-                        else{
+                                errorToast("Peringatan: Tidak ada koneksi internet.");
+                            } else {
 
-                            if(new Connection().checkConnection(getActivity()) &&  pref.getInt("kirim_user", -1) == 1) {
-                                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                                params.add(new BasicNameValuePair("aksi", "update"));
-                                //Log.d("idcek",""+id);
-                                params.add(new BasicNameValuePair("id", ""+pref.getInt("id_user", -1)));
-                                params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
-                                params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
-                                params.add(new BasicNameValuePair("jabatan",  String.valueOf(jabatan.getText())));
-                                params.add(new BasicNameValuePair("notelp",  String.valueOf(noTelp.getText())));
-                                params.add(new BasicNameValuePair("email",String.valueOf(email.getText())));
-                                params.add(new BasicNameValuePair("password",  password.getText().toString()));
-                                RequestData requestData = new RequestData(
-                                        "userdao.php",
-                                        params,
-                                        getActivity(),
-                                        "Mengubah User") {
-                                    @Override
-                                    protected void onPostExecute(JSONArray data) {
-                                        pDialog.dismiss();
+                                if (new Connection().checkConnection(getActivity()) && pref.getInt("kirim_user", -1) == 1) {
+                                    List<NameValuePair> params = new ArrayList<NameValuePair>();
+                                    params.add(new BasicNameValuePair("aksi", "update"));
+                                    //Log.d("idcek",""+id);
+                                    params.add(new BasicNameValuePair("id", "" + pref.getInt("id_user", -1)));
+                                    params.add(new BasicNameValuePair("nama", String.valueOf(nama.getText())));
+                                    params.add(new BasicNameValuePair("alamat", String.valueOf(alamat.getText())));
+                                    params.add(new BasicNameValuePair("jabatan", String.valueOf(jabatan.getText())));
+                                    params.add(new BasicNameValuePair("notelp", String.valueOf(noTelp.getText())));
+                                    params.add(new BasicNameValuePair("email", String.valueOf(email.getText())));
+                                    params.add(new BasicNameValuePair("password", password.getText().toString()));
+                                    RequestData requestData = new RequestData(
+                                            "userdao.php",
+                                            params,
+                                            getActivity(),
+                                            "Mengubah User") {
+                                        @Override
+                                        protected void onPostExecute(JSONArray data) {
+                                            pDialog.dismiss();
 
-                                        try {
-                                            Toast.makeText(
-                                                    getActivity(),
-                                                    data.get(0).toString(),
-                                                    Toast.LENGTH_SHORT
-                                            ).show();
-
-                                            if(!data.get(0).toString().contains("Kesalahan"))
-                                            {
-                                                user.setNama(String.valueOf(nama.getText()));
-                                                user.setAlamat(String.valueOf(alamat.getText()));
-                                                user.setJabatan(String.valueOf(jabatan.getText()));
-                                                user.setNoTelp(String.valueOf(noTelp.getText()));
-                                                user.setEmail(String.valueOf(email.getText()));
-                                                user.setPassword(String.valueOf(password.getText()));
-
-                                                userDAO.updateUser(user);
+                                            try {
                                                 Toast.makeText(
-                                                        rootView.getContext(),
-                                                        "Informasi pengguna telah diubah.",
+                                                        getActivity(),
+                                                        data.get(0).toString(),
                                                         Toast.LENGTH_SHORT
                                                 ).show();
-                                                userDAO.close();
-                                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                                                startActivity(intent);
+
+                                                if (!data.get(0).toString().contains("Kesalahan")) {
+                                                    user.setNama(String.valueOf(nama.getText()));
+                                                    user.setAlamat(String.valueOf(alamat.getText()));
+                                                    user.setJabatan(String.valueOf(jabatan.getText()));
+                                                    user.setNoTelp(String.valueOf(noTelp.getText()));
+                                                    user.setEmail(String.valueOf(email.getText()));
+                                                    user.setPassword(String.valueOf(password.getText()));
+
+                                                    userDAO.updateUser(user);
+                                                    Toast.makeText(
+                                                            rootView.getContext(),
+                                                            "Informasi pengguna telah diubah.",
+                                                            Toast.LENGTH_SHORT
+                                                    ).show();
+                                                    userDAO.close();
+                                                    Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                                    startActivity(intent);
+                                                    System.gc();
+                                                    getActivity().finish();
+                                                }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
                                             }
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
                                         }
+                                    };
+                                    requestData.execute();
+                                } else {
 
-                                        Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                                        startActivity(intent);
-                                        getActivity().finish();
-                                    }
-                                };
-                                requestData.execute();
-                            }
-                            else {
+                                    user.setNama(String.valueOf(nama.getText()));
+                                    user.setAlamat(String.valueOf(alamat.getText()));
+                                    user.setJabatan(String.valueOf(jabatan.getText()));
+                                    user.setNoTelp(String.valueOf(noTelp.getText()));
+                                    user.setEmail(String.valueOf(email.getText()));
+                                    user.setPassword(String.valueOf(password.getText()));
 
-                                user.setNama(String.valueOf(nama.getText()));
-                                user.setAlamat(String.valueOf(alamat.getText()));
-                                user.setJabatan(String.valueOf(jabatan.getText()));
-                                user.setNoTelp(String.valueOf(noTelp.getText()));
-                                user.setEmail(String.valueOf(email.getText()));
-                                user.setPassword(String.valueOf(password.getText()));
-
-                                userDAO.updateUser(user);
-                                Toast.makeText(
-                                        rootView.getContext(),
-                                        "Informasi pengguna telah diubah.",
-                                        Toast.LENGTH_SHORT
-                                ).show();
-                                userDAO.close();
-                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                                startActivity(intent);
+                                    userDAO.updateUser(user);
+                                    Toast.makeText(
+                                            rootView.getContext(),
+                                            "Informasi pengguna telah diubah.",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
+                                    userDAO.close();
+                                    Intent intent = new Intent(rootView.getContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    System.gc();
+                                    getActivity().finish();
+                                }
                             }
                         }
                     }
@@ -294,7 +291,7 @@ public class UbahUserActivity extends ActionBarActivity {
                                                         user.setJabatan(String.valueOf(jabatan.getText()));
                                                         user.setNoTelp(String.valueOf(noTelp.getText()));
                                                         user.setEmail(String.valueOf(email.getText()));
-                                                        user.setPassword(String.valueOf(password.getText()));
+                                                        user.setPassword(String.valueOf(newPassword.getText()));
 
                                                         userDAO.updateUser(user);
                                                         Toast.makeText(
@@ -305,22 +302,17 @@ public class UbahUserActivity extends ActionBarActivity {
                                                         userDAO.close();
                                                         Intent intent = new Intent(rootView.getContext(), MainActivity.class);
                                                         startActivity(intent);
+                                                        System.gc();
+                                                        getActivity().finish();
                                                     }
                                                 } catch (JSONException e) {
                                                     e.printStackTrace();
                                                 }
-
-
-                                                Intent intent = new Intent(rootView.getContext(), MainActivity.class);
-                                                startActivity(intent);
-                                                getActivity().finish();
                                             }
                                         };
                                         requestData.execute();
                                     }
                                     else {
-
-
                                         user.setNama(String.valueOf(nama.getText()));
                                         user.setAlamat(String.valueOf(alamat.getText()));
                                         user.setJabatan(String.valueOf(jabatan.getText()));
@@ -337,6 +329,7 @@ public class UbahUserActivity extends ActionBarActivity {
                                         userDAO.close();
                                         Intent intent = new Intent(rootView.getContext(), MainActivity.class);
                                         startActivity(intent);
+                                        System.gc();
                                         getActivity().finish();
                                     }
                                 }

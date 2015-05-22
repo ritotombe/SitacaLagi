@@ -106,22 +106,27 @@ public class MainActivity extends ActionBarActivity {
                     case 0:
                         intent = new Intent(getApplicationContext(), KategoriActivity.class);
                         startActivity(intent);
+                        //finish();
                         break;
                     case 1:
                         intent = new Intent(getApplicationContext(), DonaturActivity.class);
                         startActivity(intent);
+                        //finish();
                         break;
                     case 2:
                         intent = new Intent(getApplicationContext(), KegiatanActivity.class);
                         startActivity(intent);
+                        //finish();
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(), UbahTamanBacaActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                     case 4:
                         intent = new Intent(getApplicationContext(), UbahUserActivity.class);
                         startActivity(intent);
+                        finish();
                         break;
                     case 5:
                         if(new Connection().checkConnection(getApplicationContext())) {
