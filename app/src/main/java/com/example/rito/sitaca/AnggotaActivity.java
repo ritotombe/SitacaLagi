@@ -330,7 +330,7 @@ public class AnggotaActivity extends ActionBarActivity implements AdapterView.On
                 }
             }
             deleteList = new ArrayList<>();
-            //populateList();
+            populateList();
         }
 
         //Animasi saat tekan tombol delete
