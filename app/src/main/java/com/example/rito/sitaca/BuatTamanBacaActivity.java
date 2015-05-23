@@ -513,8 +513,8 @@ public class BuatTamanBacaActivity extends ActionBarActivity {
             peminjamanDAO.createPeminjaman(21,21,"27/02/2013","28/03/2014",5);
             peminjamanDAO.createPeminjaman(22,22,"28/02/2013","29/03/2014",5);
             peminjamanDAO.createPeminjaman(23,23,"01/03/2013","30/03/2014",5);
-            peminjamanDAO.createPeminjaman(24,24,"02/03/2013","31/03/2014",6);
-            peminjamanDAO.createPeminjaman(25,25,"03/03/2013","01/04/2014",6);
+            peminjamanDAO.createPeminjaman(24,24,"02/03/2013","31/03/2014",4);
+            peminjamanDAO.createPeminjaman(25,25,"03/03/2013","01/04/2014",4);
 
 
             pertukaranBukuDAO.createPertukaranBuku(26,26,"15/7/2012","18/7/2012");
