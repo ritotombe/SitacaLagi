@@ -190,6 +190,12 @@ public class MainActivity extends ActionBarActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    } catch (NullPointerException e){
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Kesalahan: Pengguna belum mengirim laporan.",
+                                Toast.LENGTH_SHORT
+                        ).show();
                     }
             }
         };
