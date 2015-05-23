@@ -121,9 +121,7 @@ public class PeminjamanActivity extends ActionBarActivity implements OnItemLongC
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement ------------------------------------------ tambahandelete
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
         if (id == R.id.search) {
             ////////////////////////////ubah search/ada yang dihapus disini!!!!!!!!!!!!!!!!!!!!!!!
             return true;
