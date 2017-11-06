@@ -208,28 +208,38 @@ public class PengumumanActivity extends ActionBarActivity {
             {
                 @Override
                 protected void onPostExecute(JSONArray data) {
+
                     pDialog.dismiss();
-                    JSONArray jsonArray = data;
-                    //og.d("cekid", ""+jsonArray);
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        try {
-                            JSONObject o = jsonArray.getJSONObject(i);
-                            //String temp = o.getJSONObject("waktu").toString();
-                            //Log.d("cekxx", ""+temp);
-                            Pengumuman pengumuman = new Pengumuman(
-                                    o.getInt("id"),
-                                    o.getInt("id_admin"),
-                                    o.getString("nama"),
-                                    o.getString("judul"),
-                                    null,
-                                    o.getString("waktu")
-                            );
-                            listPengumuman.add(pengumuman);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                    if (data == null) {
+
+                        Toast.makeText(
+                                getActivity(),
+                                "Pengumuman tidak ada",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                    else {
+                        JSONArray jsonArray = data;
+                        //og.d("cekid", ""+jsonArray);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            try {
+                                JSONObject o = jsonArray.getJSONObject(i);
+                                //String temp = o.getJSONObject("waktu").toString();
+                                //Log.d("cekxx", ""+temp);
+                                Pengumuman pengumuman = new Pengumuman(
+                                        o.getInt("id"),
+                                        o.getInt("id_admin"),
+                                        o.getString("nama"),
+                                        o.getString("judul"),
+                                        null,
+                                        o.getString("waktu")
+                                );
+                                listPengumuman.add(pengumuman);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
-
                     Collections.reverse(listPengumuman);
                     adapterPengumuman = new PengumumanListAdapter(listPengumuman);
                     mListViewPengumuman.setAdapter(adapterPengumuman);

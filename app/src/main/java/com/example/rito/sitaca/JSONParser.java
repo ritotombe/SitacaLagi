@@ -31,7 +31,7 @@ package com.example.rito.sitaca;
         static InputStream is = null;
         static JSONObject jObj = null;
         static String json = "";
-        static final String BASE_URL = "http://ritotom.be/sitacaapi/"; // atau http://1001buku.or.id/
+        static final String BASE_URL = "http://ritotom.be/sitacaapi2/"; // atau http://1001buku.or.id/
 
         // constructor
         public JSONParser() {
