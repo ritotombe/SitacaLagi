@@ -31,7 +31,7 @@ package com.example.rito.sitaca;
         static InputStream is = null;
         static JSONObject jObj = null;
         static String json = "";
-        static final String BASE_URL = "http://ritotom.be/sitacaapi2/"; // atau http://1001buku.or.id/
+        static final String BASE_URL = "http://10.0.2.2:1234/sitaca/sitaca_api/"; // atau http://1001buku.or.id/
 
         // constructor
         public JSONParser() {
@@ -146,8 +146,10 @@ package com.example.rito.sitaca;
                 while ((line = reader.readLine()) != null) {
                     sb.append(line + "\n");
                 }
+
                 is.close();
                 json = sb.toString();
+                Log.e("HAHA", json);
             } catch (Exception e) {
                 Log.e("Buffer Error", "Error converting result " + e.toString());
             }

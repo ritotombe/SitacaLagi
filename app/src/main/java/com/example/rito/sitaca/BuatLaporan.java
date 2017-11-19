@@ -124,7 +124,7 @@ public class BuatLaporan {
         Date date = new Date();
 
         if(!summaryBuku.equals(null)) {
-            theQuery += "(" +
+            theQuery += "(NULL," +
                     id_tb + ", " +
                     summaryBuku.getIndividu() + ", " +
                     summaryBuku.getOrganisasi() + ", " +

@@ -170,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
             protected void onPostExecute(JSONArray data) {
                 pDialog.dismiss();
                 JSONArray jsonArray = data;
-                //og.d("cekid", ""+jsonArray);
+                Log.d("cekid", ""+jsonArray);
                 //for (int i = 0; i < jsonArray.length(); i++) {
                     //Log.d("cekid", "" + i);
                     try {

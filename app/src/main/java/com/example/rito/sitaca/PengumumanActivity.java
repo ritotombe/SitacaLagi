@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -220,7 +221,7 @@ public class PengumumanActivity extends ActionBarActivity {
                     }
                     else {
                         JSONArray jsonArray = data;
-                        //og.d("cekid", ""+jsonArray);
+                        Log.d("cekid", ""+jsonArray);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             try {
                                 JSONObject o = jsonArray.getJSONObject(i);
